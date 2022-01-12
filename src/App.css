@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+:root{
+    /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-gray: #4d4d4d;
+  --color-gray: #616161;
+  --color-light-gray: #ececec;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+  --color-primary: #e0bfe6;
+
+  /* Font size */
+  --font-large: 60px;
+  --font-medium: 38px;
+  --font-regular: 30px;
+  --font-small: 28px;
+  --font-micro: 26px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+  --animation-duration: 250ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Jua', sans-serif;
+  cursor: default;
+  background-color: var(--color-light-gray);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin:0px;
+}
+
+#root{
+    background-color:white;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+}
+
+@media (min-width:650px){
+    .App{
+        width:640px;
+    }
+}
+@media (max-width:650px){
+    .App{
+        width:90vw;
+    }
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Typography */
+
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0px;
+}
+
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 4px 0;
+}
+
+
+/*Header*/
+.MyHeader{
+    padding:20px 0;
+    display:flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-light-gray);
+    font-size:var(--font-medium)
+}
+
+.MyHeader > div{
+    display: flex;
+}
+
+.MyHeader .MyHeader__left{
+    cursor:pointer;
+    width:25%;
+    justify-content: start;
+}
+
+.MyHeader .MyHeader__right{
+    cursor:pointer;
+    width:40%;
+    justify-content: end;
+}
+
+.MyHeader .MyHeader__loginInfo{
+    font-family: 'Jua', sans-serif;
+}
+
+.MyHeader .MyHeader__searchBar{
+    width: 50%;
+}
+
+.MyHeader .MyHeader__rightChild{
+    font-size: var(--font-small);
+}
+
+/*MyButton*/
+.MyButton {
+    font-family: 'Jua', sans-serif;
+    cursor: pointer;
+    border:none;
+    border-radius: 5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right: 20px;
+    font-size:18px;
+    white-space: nowrap;    
+}
+
+.MyButton button{
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+
+/*MyBanner*/
+.MyBanner{
+    height:300px;
+}
+
+.MyBanner .MyBanner__swiper{
+    height:300px;
+}
+
+.MyBanner .MyBanner__slideItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
