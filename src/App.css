@@ -168,3 +168,18 @@ p {
     align-items: center;
 }
 
+
+/*MyBanner*/
+.MyBanner{
+    height:300px;
+}
+
+.MyBanner .MyBanner__swiper{
+    height:300px;
+}
+
+.MyBanner .MyBanner__slideItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

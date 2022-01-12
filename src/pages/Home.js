@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import MyHeader from "../components/MyHeader"
 import MyButton from "../components/MyButton"
+import MyBanner from "../components/MyBanner";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -23,6 +24,8 @@ const Home = () => {
             :<MyButton text={"로그인/회원가입"} onClick={()=>navigate("/signin") }/>} 
         rightChild={<GiHamburgerMenu onClick={()=>{navigate("/signin")}}/>}
         />
+
+        <MyBanner />
         
         </div>
     )
