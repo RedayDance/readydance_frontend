@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
 import MyBanner from "../components/MyBanner";
-import DanceAcademies from "../components/DanceAcademies";
+import BannerList from "../components/BannerList";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,6 +17,39 @@ const Home = () => {
   const toggleLogin = () => {
     setLogin(!login);
   };
+
+  const dancerooms = [
+    {
+      id: 1,
+      rate: 4.5,
+      name: "댄스 연습실 1",
+      location: "서울특별시 강남구 논현로1길",
+    },
+    {
+      id: 2,
+      rate: 4.5,
+      name: "댄스 연습실 2",
+      location: "서울특별시 강남구 논현로1길",
+    },
+    {
+      id: 3,
+      rate: 4.5,
+      name: "댄스 연습실 3",
+      location: "서울특별시 강남구 논현로1길",
+    },
+    {
+      id: 4,
+      rate: 4.5,
+      name: "댄스 연습실 4",
+      location: "서울특별시 강남구 논현로1길",
+    },
+    {
+      id: 5,
+      rate: 4.5,
+      name: "댄스 연습실 5",
+      location: "서울특별시 강남구 논현로1길",
+    },
+  ];
 
   const academies = [
     {
@@ -80,7 +113,10 @@ const Home = () => {
       />
       <MyBanner />
       <h4 className="Home__academies">지금! 뜨고 있는 댄스학원</h4>
-      <DanceAcademies list={academies} />
+      <BannerList list={academies} />
+
+      <h4 className="Home__dancerooms">댄서들이 가장 많이 찾는 연습실</h4>
+      <BannerList list={dancerooms} />
     </div>
   );
 };
