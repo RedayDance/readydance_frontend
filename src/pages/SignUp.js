@@ -1,6 +1,10 @@
+import MyFooter from "../components/MyFooter";
 const SignUp = () => {
-    return <>
-    singup
+  return (
+    <>
+      singup
+      <MyFooter />
     </>
-}
+  );
+};
 export default SignUp;

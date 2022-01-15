@@ -113,7 +113,7 @@ h4 {
 
 /*Header*/
 .MyHeader {
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--color-light-gray);
@@ -188,7 +188,15 @@ h4 {
 .MySwiperList {
   position: relative;
 
-  height: 230px;
+  height: 0 atuo;
+}
+
+.MySwiperList h4 {
+  margin-bottom: 0;
+}
+
+.MySwiperList .MySwiperList__bar__btn {
+  float: right;
 }
 .MySwiperList .MySwiperList__swiper {
   width: 95%;
@@ -218,4 +226,18 @@ h4 {
 /*Home*/
 .Home h4 {
   margin-left: 20px;
+}
+
+.MyButton .addBtn {
+  background-color: violet;
+}
+
+/*MyFooter*/
+.MyFooter {
+  background-color: var(--color-dark-gray);
+  color: var(--color-dark-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
 }
