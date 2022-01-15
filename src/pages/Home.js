@@ -7,6 +7,7 @@ import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
 import MyButton from "../components/MyButton";
 import MyBanner from "../components/MyBanner";
+import About from "../components/About";
 import BannerList from "../components/BannerList";
 
 const Home = () => {
@@ -184,6 +185,12 @@ const Home = () => {
         }
         list={dancers}
       />
+      <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
+      <section className="Home__about">
+          <About headText="레디댄스란 무엇인가요?" />
+          <About headText="레디댄스란 무엇인가요?" />
+          <About headText="저에게 맞는 댄스 장르를 찾고 싶어요" />
+      </section>
       <MyFooter />
     </div>
   );

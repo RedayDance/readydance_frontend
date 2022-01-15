@@ -232,6 +232,13 @@ h4 {
   background-color: violet;
 }
 
+.Home .Home__about{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:20px;
+}
+
 /*MyFooter*/
 .MyFooter {
   background-color: var(--color-dark-gray);
@@ -240,4 +247,22 @@ h4 {
   align-items: center;
   justify-content: center;
   padding: 20px 0;
+}
+
+
+/*About*/
+.About{
+  background-color: var(--color-light-gray);
+  width:25%;
+  height:100px;
+  margin: 0 20px;
+  padding-top:10px;
+  padding-left:10px;
+  font-size:var(--font-small);
+  word-break : nowrap;
+  text-overflow: clip;
+}
+.About__p {
+  word-wrap: break-word;
+  word-break: keep-all;
 }
