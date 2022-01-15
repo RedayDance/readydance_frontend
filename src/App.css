@@ -84,6 +84,12 @@ h4 {
   font-size: var(--font-regular);
 }
 
+input{
+  margin-bottom:10px;
+  border-radius: 5px;
+  padding:3px;
+  border:1px solid var(--color-dark-gray)
+}
 ::placeholder{
   font-family: "Jua", sans-serif;
 }
@@ -177,6 +183,10 @@ h4 {
   align-items: center;
 }
 
+.MyButton:hover{
+  background-color:var(--color-primary);
+  color:var(--color-light-white);
+}
 /*MyBanner*/
 .MyBanner {
   height: 300px;
@@ -210,6 +220,7 @@ h4 {
 .MySwiperList .MySwiperList__swiper {
   width: 95%;
   height: 260px;
+  cursor:pointer;
 }
 .MySwiperList .MySwiper__slideItem {
   display: flex;
@@ -246,6 +257,7 @@ h4 {
   justify-content: space-between;
   align-items: center;
   margin-bottom:20px;
+  cursor: pointer;
 }
 
 /*MyFooter*/
@@ -304,4 +316,45 @@ h4 {
 .SignIn .SignIn__toSignUp{
   display: flex;
   align-items: center;
+}
+
+.SignIn input:hover , .SignIn input:focus{
+  outline: none !important;
+  border:1px solid var(--color-primary);
+}
+
+
+
+/*SignUp*/
+.SignUp .SignUp__innerSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SignUp input{
+  width:200px; 
+}
+
+
+.SignUp .SignUp__btn{
+  width:300px ;
+}
+.SignUp h5{
+  color:var(--color-dark-gray);
+}
+
+.SignUp input:hover, .SignUp input:focus{
+  outline:none !important;
+  border:1px solid var(--color-primary);
+}
+
+.SignUp .SignUp__alert{
+  color:red;
+  margin:0;
+}
+
+.SignUp h5{
+  margin-bottom:5px;
 }
