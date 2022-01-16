@@ -1,9 +1,10 @@
-const MyButton = ({text, onClick}) => {
-   
-    return (
-        <div className="MyButton" >
-            <button onClick={onClick}> {text} </button>
-        </div>
-    )
-}
+const MyButton = ({ text, onClick, style }) => {
+  return (
+    <button className="MyButton" onClick={onClick}
+    style={style}
+    >
+      {text}
+    </button>
+  );
+};
 export default MyButton;

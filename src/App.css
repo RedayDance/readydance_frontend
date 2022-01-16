@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-:root{
-    /* Color */
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+:root {
+  /* Color */
   --color-white: #ffffff;
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
@@ -13,14 +13,14 @@
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
-  --color-primary: #e0bfe6;
+  --color-primary: #44dccf;
 
   /* Font size */
-  --font-large: 60px;
-  --font-medium: 38px;
-  --font-regular: 30px;
-  --font-small: 28px;
-  --font-micro: 26px;
+  --font-large: 30px;
+  --font-medium: 25px;
+  --font-regular: 20px;
+  --font-small: 15px;
+  --font-micro: 10px;
 
   /* Font weight */
   --weight-bold: 700;
@@ -37,30 +37,30 @@
 }
 
 body {
-  font-family: 'Jua', sans-serif;
+  font-family: "Jua", sans-serif;
   cursor: default;
   background-color: var(--color-light-gray);
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin:0px;
+  margin: 0px;
 }
 
-#root{
-    background-color:white;
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-@media (min-width:650px){
-    .App{
-        width:640px;
-    }
+@media (min-width: 700px) {
+  .App {
+    width: 690px;
+  }
 }
-@media (max-width:650px){
-    .App{
-        width:90vw;
-    }
+@media (max-width: 700px) {
+  .App {
+    width: 90vw;
+  }
 }
 
 a {
@@ -80,106 +80,291 @@ button {
   outline: none;
 }
 
-/* Typography */
-
-h1 {
-  font-size: var(--font-large);
-  font-weight: var(--weight-bold);
-  color: var(--color-black);
-  margin: 16px 0px;
-}
-
-h2 {
-  font-size: var(--font-medium);
-  font-weight: var(--weight-semi-bold);
-  color: var(--color-black);
-  margin: 8px 0;
-}
-
-h3 {
+h4 {
   font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
-  color: var(--color-black);
-  margin: 8px 0;
 }
 
-p {
-  font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
-  color: var(--color-black);
-  margin: 4px 0;
+input{
+  margin-bottom:10px;
+  border-radius: 5px;
+  padding:3px;
+  border:1px solid var(--color-dark-gray)
+}
+::placeholder{
+  font-family: "Jua", sans-serif;
 }
 
+
+
+/*Swiper custom*/
+.swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
+}
+
+.swiper {
+  margin: 20px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-image: url(/public/assets/next.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-prev {
+  height: 200px;
+  width: 200px;
+  background-image: url(/public/assets/prevBtn.png);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
 
 /*Header*/
-.MyHeader{
-    padding:20px 0;
-    display:flex;
-    align-items: center;
-    border-bottom: 1px solid var(--color-light-gray);
-    font-size:var(--font-medium)
+.MyHeader {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-light-gray);
+  font-size: var(--font-medium);
 }
 
-.MyHeader > div{
-    display: flex;
+.MyHeader > div {
+  display: flex;
 }
 
-.MyHeader .MyHeader__left{
-    cursor:pointer;
-    width:25%;
-    justify-content: start;
+.MyHeader .MyHeader__left {
+  cursor: pointer;
+  width: 25%;
+  justify-content: start;
 }
 
-.MyHeader .MyHeader__right{
-    cursor:pointer;
-    width:40%;
-    justify-content: end;
+.MyHeader .MyHeader__right {
+  cursor: pointer;
+  width: 40%;
+  justify-content: end;
 }
 
-.MyHeader .MyHeader__loginInfo{
-    font-family: 'Jua', sans-serif;
+.MyHeader .MyHeader__loginInfo {
+  font-family: "Jua", sans-serif;
 }
 
-.MyHeader .MyHeader__searchBar{
-    width: 50%;
+.MyHeader .MyHeader__searchBar {
+  width: 50%;
 }
 
-.MyHeader .MyHeader__rightChild{
-    font-size: var(--font-small);
+.MyHeader .MyHeader__rightChild {
+  font-size: var(--font-small);
 }
 
 /*MyButton*/
 .MyButton {
-    font-family: 'Jua', sans-serif;
-    cursor: pointer;
-    border:none;
-    border-radius: 5px;
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:20px;
-    padding-right: 20px;
-    font-size:18px;
-    white-space: nowrap;    
+  font-family: "Jua", sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-light-gray);
+  border:1px solid var(--color-light-gray);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-right:30px;
+  margin-bottom:10px;
+  
+  font-size: var(--font-micro);
+  white-space: nowrap;
 }
 
-.MyButton button{
-    font-family: 'Jua', sans-serif;
-    display: flex;
-    align-items: center;
+.MyButton button {
+  font-family: "Jua", sans-serif;
+  display: flex;
+  align-items: center;
 }
 
-
+.MyButton:hover{
+  background-color:var(--color-primary);
+  color:var(--color-light-white);
+}
 /*MyBanner*/
-.MyBanner{
-    height:300px;
+.MyBanner {
+  height: 300px;
 }
 
-.MyBanner .MyBanner__swiper{
-    height:300px;
+.MyBanner .MyBanner__swiper {
+  height: 300px;
+  width: 90%;
 }
 
-.MyBanner .MyBanner__slideItem{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.MyBanner .MyBanner__slideItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/*MySwiper*/
+.MySwiperList {
+  position: relative;
+
+  height: 0 atuo;
+}
+
+.MySwiperList h4 {
+  margin-bottom: 0;
+}
+
+.MySwiperList .MySwiperList__bar__btn {
+  float: right;
+}
+.MySwiperList .MySwiperList__swiper {
+  width: 95%;
+  height: 260px;
+  cursor:pointer;
+}
+.MySwiperList .MySwiper__slideItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MySwiperList .MySwiperList__rate {
+  color: var(--color-dark-gray);
+  font-size: var(--font-micro);
+}
+
+.MySwiperList .MySwiperList__name {
+  font-size: var(--font-small);
+  margin: 4px 0;
+}
+
+.MySwiperList .MySwiperList__description {
+  color: var(--color-dark-gray);
+  font-size: var(--font-micro);
+}
+
+/*Home*/
+.Home h4 {
+  margin-left: 20px;
+}
+
+.MyButton .addBtn {
+  background-color: violet;
+}
+
+.Home .Home__about{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:20px;
+  cursor: pointer;
+}
+
+/*MyFooter*/
+.MyFooter {
+  background-color: var(--color-dark-gray);
+  color: var(--color-dark-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+
+/*About*/
+.About{
+  background-color: var(--color-light-gray);
+  width:25%;
+  height:100px;
+  margin: 0 20px;
+  padding-top:10px;
+  padding-left:10px;
+  font-size:var(--font-small);
+  word-break : nowrap;
+  text-overflow: clip;
+}
+.About__p {
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+
+/*SignIn*/
+
+.SignIn{
+  height: 0 auto;
+}
+
+.SignIn .SignIn__innerSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.SignIn input{
+  margin-bottom:15px;
+  border-radius: 5px;
+  padding:3px;
+  border:1px solid var(--color-dark-gray)
+}
+
+.SignIn h5{
+  color:var(--color-dark-gray);
+  margin-right: 15px;
+}
+
+
+.SignIn .SignIn__toSignUp{
+  display: flex;
+  align-items: center;
+}
+
+.SignIn input:hover , .SignIn input:focus{
+  outline: none !important;
+  border:1px solid var(--color-primary);
+}
+
+
+
+/*SignUp*/
+.SignUp .SignUp__innerSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SignUp input{
+  width:200px; 
+}
+
+
+.SignUp .SignUp__btn{
+  width:300px ;
+}
+.SignUp h5{
+  color:var(--color-dark-gray);
+}
+
+.SignUp h6{
+  color:var(--color-dark-gray);
+  margin-bottom: 1px;
+  margin-top:1px;
+}
+.SignUp input:hover, .SignUp input:focus{
+  outline:none !important;
+  border:1px solid var(--color-primary);
+}
+
+.SignUp .SignUp__alert{
+  color:red;
+  margin:0;
+}
+
+.SignUp h5{
+  margin-bottom:5px;
+}
+
