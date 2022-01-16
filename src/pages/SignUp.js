@@ -1,6 +1,6 @@
 import { DiGithub } from "react-icons/di";
 import { useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import MyFooter from "../components/MyFooter";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
@@ -16,8 +16,10 @@ const SignUp = () => {
   const [passwordCheckAlertMent, setPasswordCheckAlertMent] = useState("");
 
 
-  const [hasSmallChar, setHasSmallChar] = useState(false);
+  const [hasEngChar, setHasEngChar] = useState(false);
   const [hasSpecialSymbol, setHasSpecialSymbol] = useState(false);
+  const [hasNumber, setHasNumber] = useState(false);
+  const [hasGoodLength, setHasGoodLength] = useState(false);
 
   const nicknameRef = useRef();
   const emailRef = useRef();
@@ -29,6 +31,8 @@ const SignUp = () => {
   const pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/;
   const pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 
+
+ 
   const checkEmail=(str)=>{
     const reg_email=/^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     if(!reg_email.test(str)){
@@ -38,6 +42,53 @@ const SignUp = () => {
       return true;
     }
   }
+
+  useEffect(()=>{
+
+  },[])
+  const checkPassword = (password)=>{
+    if(pattern_num.test(password)){
+      setHasNumber(true);
+    } 
+    else {
+      setHasNumber(false);
+    }
+    if(pattern_eng.test(password)){
+      setHasEngChar(true);
+    } 
+    else {
+      setHasEngChar(false);
+    }
+    if(pattern_spc.test(password)){
+      setHasSpecialSymbol(true);
+    } 
+    else {
+      setHasSpecialSymbol(false);
+    }
+    if(password.length >= 6){
+      setHasGoodLength(true);
+    }
+    else{
+      setHasGoodLength(false);
+    }
+
+    if(pattern_kor.test(password)){
+      setPasswordAlertMent("비밀번호에 한글은 사용 불가합니다");
+    }
+    else{
+      setPasswordAlertMent("");
+    }
+  }
+
+
+  const disable = () => {
+    if(nickname.length >= 1 && email.length >= 1 && (hasGoodLength && hasNumber && hasSpecialSymbol && hasEngChar) && (checkpassword.length===password.length)){
+      return false;
+    }
+    return true;
+  }
+    
+
   const handleSubmit= ()=>{
     if(nickname.length < 1){
       nicknameRef.current.focus();
@@ -46,6 +97,10 @@ const SignUp = () => {
     if(email.length < 1){
       emailRef.current.focus();
       return;
+    }
+    if(!checkEmail(email)){
+      setEmailAlertMent("잘못된 이메일 형식입니다.");
+      return false;
     }
     if(password.length < 6){
       passwordRef.current.focus();
@@ -59,35 +114,11 @@ const SignUp = () => {
       checkpasswordRef.current.focus();
       
     }
-    else if(!pattern_num.test(password)){
-      setPasswordAlertMent("숫자를 하나 이상 포함해주세요");
-    } 
-    else if(!pattern_eng.test(password)){
-      setPasswordAlertMent("영어를 하나 이상 포함해주세요")
-    } 
-    else if(!pattern_spc.test(password)){
-      setPasswordAlertMent("특수문자를 하나 이상 포함해주세요");
-    } 
-    else if(pattern_kor.test(password)){
-      setPasswordAlertMent("비밀번호에 한글은 사용 불가합니다");
-    }
-    else{
-      setPasswordAlertMent("");
-    }
-    if(!checkEmail(email)){
-      setEmailAlertMent("잘못된 이메일 형식입니다.");
-    }
-    else{
-      setEmailAlertMent("");
-    }
+
     if(checkpassword!==password){
       setPasswordCheckAlertMent("입력하신 비밀번호와 일치하지 않습니다");
-      return;
+      return ;
     }
-    else{
-      setPasswordCheckAlertMent("");
-    }
-
 
     if(pattern_num.test(password) && pattern_eng.test(password) && pattern_spc.test(password) && !pattern_kor.test(password)){
       const ans = window.confirm("회원가입을 진행하시겠습니까?");
@@ -106,6 +137,20 @@ const SignUp = () => {
     backgroundColor:"#0078ff", color:"#ebffff", width:"200px"
   }
 
+  const disableBtnStyle = {
+    pointerEvents: "none", opacity: "0.4",
+    backgroundColor:"#0078ff", color:"#ebffff", width:"200px"
+  }
+
+  useEffect(()=>{
+    checkPassword(password);
+  }, [password])
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    checkPassword(password);
+  }
+
   return (
     <div className="SignUp">
       <MyHeader leftChild={<DiGithub
@@ -113,8 +158,10 @@ const SignUp = () => {
             navigate("/");
           }}
         />}/>
-
+     
       <section className="SignUp__innerSection">
+
+
         <div>
           <h5>닉네임</h5>
           <input 
@@ -126,15 +173,20 @@ const SignUp = () => {
           <h5>이메일</h5>
           <input 
           placeholder="이메일"
-          type="email" name="email" value={email}  ref={emailRef} onChange={(e)=>{setEmail(e.target.value)}}/>
+          type="email" name="email" value={email}  ref={emailRef} onChange={(e)=>{setEmail(e.target.value);}}/>
           <h5 className="SignUp__alert">{emailAlertMent}</h5>
         </div>
 
         <div>
-          <h5>비밀번호(소문자와 숫자 포함 최소 6자)</h5>
+          <h5>비밀번호</h5>
           <input 
           placeholder="비밀번호"
-          type="password" name="password" value={password}  ref={passwordRef} onChange={(e)=>setPassword(e.target.value)}/>
+          type="password" name="password" value={password}  ref={passwordRef} onChange={(e)=>{handlePasswordChange(e)}}/>
+          <h6 style={hasSpecialSymbol ? {textDecoration: 'line-through #4d4d4d 2px'} : {}}> 특수문자를 하나 이상 포함해주세요 </h6>
+          <h6 style={hasEngChar ? {textDecoration: 'line-through #4d4d4d 2px'} : {}}> 영어를 하나 이상 포함해주세요 </h6>
+          <h6 style={hasNumber ? {textDecoration: 'line-through #4d4d4d 2px'} : {}}> 숫자를 하나 이상 포함해주세요 </h6>
+          <h6 style={hasGoodLength ? {textDecoration: 'line-through #4d4d4d 2px'} : {}}> 비밀번호는 6자 이상으로 설정해주세요 </h6>
+
           <h5 className="SignUp__alert">{passwordAlertMent}</h5>
         </div>
 
@@ -146,8 +198,10 @@ const SignUp = () => {
           <h5 className="SignUp__alert">{passwordCheckAlertMent}</h5>
         </div>
   
-          
-        <MyButton text={"계정 만들기"} onClick={handleSubmit} style={btnStyle} />
+
+          <MyButton style = {disable() ? disableBtnStyle : btnStyle} text={"계정 만들기"} onClick={handleSubmit} />
+   
+        
       </section>
 
      

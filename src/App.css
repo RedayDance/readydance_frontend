@@ -313,6 +313,8 @@ input{
   color:var(--color-dark-gray);
   margin-right: 15px;
 }
+
+
 .SignIn .SignIn__toSignUp{
   display: flex;
   align-items: center;
@@ -345,6 +347,11 @@ input{
   color:var(--color-dark-gray);
 }
 
+.SignUp h6{
+  color:var(--color-dark-gray);
+  margin-bottom: 1px;
+  margin-top:1px;
+}
 .SignUp input:hover, .SignUp input:focus{
   outline:none !important;
   border:1px solid var(--color-primary);
@@ -358,3 +365,4 @@ input{
 .SignUp h5{
   margin-bottom:5px;
 }
+
