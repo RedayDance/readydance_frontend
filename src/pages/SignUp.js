@@ -132,14 +132,14 @@ const SignUp = () => {
 
     
   }
-
+  
   const btnStyle = {
-    backgroundColor:"#0078ff", color:"#ebffff", width:"200px"
+    backgroundColor:"#44dccf", color:"#eeeeee", width:"200px" , margin:"0 auto"
   }
 
   const disableBtnStyle = {
     pointerEvents: "none", opacity: "0.4",
-    backgroundColor:"#0078ff", color:"#ebffff", width:"200px"
+    backgroundColor:"#44dccf", color:"#eeeeee", width:"200px" , margin:"0 auto"
   }
 
   useEffect(()=>{
@@ -200,11 +200,7 @@ const SignUp = () => {
   
 
           <MyButton style = {disable() ? disableBtnStyle : btnStyle} text={"계정 만들기"} onClick={handleSubmit} />
-   
-        
       </section>
-
-     
       <MyFooter />
     </div>
   );

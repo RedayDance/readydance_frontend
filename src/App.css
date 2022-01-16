@@ -172,7 +172,9 @@ input{
   padding-bottom: 5px;
   padding-left: 7px;
   padding-right: 7px;
-  margin-right:10px;
+  margin-right:30px;
+  margin-bottom:10px;
+  
   font-size: var(--font-micro);
   white-space: nowrap;
 }

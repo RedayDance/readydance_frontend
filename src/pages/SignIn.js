@@ -8,7 +8,8 @@ import { useRef, useState } from "react";
 const SignIn = () => {
   const navigate = useNavigate();
   const btnStyle = {
-    backgroundColor:"#0078ff", color:"#ebffff"
+    backgroundColor:"#44dccf", color:"#eeeeee", width:"170px"
+    , margin:"0 auto"
   }
 
   const [id,setId] = useState("");
