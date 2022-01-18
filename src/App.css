@@ -84,17 +84,15 @@ h4 {
   font-size: var(--font-regular);
 }
 
-input{
-  margin-bottom:10px;
+input {
+  margin-bottom: 10px;
   border-radius: 5px;
-  padding:3px;
-  border:1px solid var(--color-dark-gray)
+  padding: 3px;
+  border: 1px solid var(--color-dark-gray);
 }
-::placeholder{
+::placeholder {
   font-family: "Jua", sans-serif;
 }
-
-
 
 /*Swiper custom*/
 .swiper-pagination-bullet-active {
@@ -167,14 +165,14 @@ input{
   border: none;
   border-radius: 10px;
   background-color: var(--color-light-gray);
-  border:1px solid var(--color-light-gray);
+  border: 1px solid var(--color-light-gray);
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 7px;
   padding-right: 7px;
-  margin-right:30px;
-  margin-bottom:10px;
-  
+  margin-right: 30px;
+  margin-bottom: 10px;
+
   font-size: var(--font-micro);
   white-space: nowrap;
 }
@@ -185,9 +183,9 @@ input{
   align-items: center;
 }
 
-.MyButton:hover{
-  background-color:var(--color-primary);
-  color:var(--color-light-white);
+.MyButton:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light-white);
 }
 /*MyBanner*/
 .MyBanner {
@@ -222,7 +220,7 @@ input{
 .MySwiperList .MySwiperList__swiper {
   width: 95%;
   height: 260px;
-  cursor:pointer;
+  cursor: pointer;
 }
 .MySwiperList .MySwiper__slideItem {
   display: flex;
@@ -246,6 +244,9 @@ input{
 }
 
 /*Home*/
+.Home {
+  position: relative;
+}
 .Home h4 {
   margin-left: 20px;
 }
@@ -254,12 +255,39 @@ input{
   background-color: violet;
 }
 
-.Home .Home__about{
+.Home .Home__about {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   cursor: pointer;
+}
+
+.Home .Home__innerHamburger {
+  margin: 0 auto;
+  width: 150px;
+  height: 100px;
+  background-color: var(--color-light-gray);
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+
+.Home .Home__innerHamburger .Home__innerhamburger__item {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Home MyBanner {
+  z-index: 1;
+}
+
+.Home .divider {
+  border-bottom: 1px solid var(--color-dark-gray);
+  opacity: 0.6;
 }
 
 /*MyFooter*/
@@ -272,17 +300,16 @@ input{
   padding: 20px 0;
 }
 
-
 /*About*/
-.About{
+.About {
   background-color: var(--color-light-gray);
-  width:25%;
-  height:100px;
+  width: 25%;
+  height: 100px;
   margin: 0 20px;
-  padding-top:10px;
-  padding-left:10px;
-  font-size:var(--font-small);
-  word-break : nowrap;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: var(--font-small);
+  word-break: nowrap;
   text-overflow: clip;
 }
 .About__p {
@@ -290,81 +317,78 @@ input{
   word-break: keep-all;
 }
 
-
 /*SignIn*/
 
-.SignIn{
+.SignIn {
   height: 0 auto;
 }
 
-.SignIn .SignIn__innerSection{
+.SignIn .SignIn__innerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.SignIn input{
-  margin-bottom:15px;
+.SignIn input {
+  margin-bottom: 15px;
   border-radius: 5px;
-  padding:3px;
-  border:1px solid var(--color-dark-gray)
+  width: 200px;
+  padding: 3px;
+  border: 1px solid var(--color-dark-gray);
 }
 
-.SignIn h5{
-  color:var(--color-dark-gray);
+.SignIn h5 {
+  color: var(--color-dark-gray);
   margin-right: 15px;
 }
 
-
-.SignIn .SignIn__toSignUp{
+.SignIn .SignIn__toSignUp {
   display: flex;
   align-items: center;
 }
 
-.SignIn input:hover , .SignIn input:focus{
+.SignIn input:hover,
+.SignIn input:focus {
   outline: none !important;
-  border:1px solid var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
-
-
 /*SignUp*/
-.SignUp .SignUp__innerSection{
+.SignUp .SignUp__innerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.SignUp input{
-  width:200px; 
+.SignUp input {
+  width: 200px;
 }
 
-
-.SignUp .SignUp__btn{
-  width:300px ;
+.SignUp .SignUp__btn {
+  width: 300px;
 }
-.SignUp h5{
-  color:var(--color-dark-gray);
+.SignUp h5 {
+  color: var(--color-dark-gray);
 }
 
-.SignUp h6{
-  color:var(--color-dark-gray);
+.SignUp h6 {
+  color: var(--color-dark-gray);
   margin-bottom: 1px;
-  margin-top:1px;
+  margin-top: 1px;
 }
-.SignUp input:hover, .SignUp input:focus{
-  outline:none !important;
-  border:1px solid var(--color-primary);
-}
-
-.SignUp .SignUp__alert{
-  color:red;
-  margin:0;
+.SignUp input:hover,
+.SignUp input:focus {
+  outline: none !important;
+  border: 1px solid var(--color-primary);
 }
 
-.SignUp h5{
-  margin-bottom:5px;
+.SignUp .SignUp__alert {
+  color: red;
+  margin: 0;
 }
 
+.SignUp h5 {
+  margin-bottom: 5px;
+}

@@ -2,6 +2,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { DiGithub } from "react-icons/di";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Modal from "react-modal";
 
 import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
@@ -12,7 +13,9 @@ import BannerList from "../components/BannerList";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
+  const [isHamPushed, setIsHamPushed] = useState(false);
+
   useEffect(() => {
     console.log(login);
   }, [login]);
@@ -140,15 +143,43 @@ const Home = () => {
           )
         }
         rightChild={
-          <GiHamburgerMenu
-            onClick={() => {
-              navigate("/signin");
-            }}
-          />
+          login ? (
+            <GiHamburgerMenu
+              onClick={() => {
+                setIsHamPushed(!isHamPushed);
+              }}
+            />
+          ) : (
+            <></>
+          )
         }
       />
-      <MyBanner />
+      {login && isHamPushed ? (
+        <div className="Home__innerHamburger">
+          <div
+            className="Home__innerhamburger__item"
+            onClick={() => {
+              alert("마이페이지 이동");
+            }}
+          >
+            {" "}
+            마이 페이지{" "}
+          </div>
+          <div className="divider"> </div>
+          <div
+            className="Home__innerhamburger__item"
+            onClick={() => {
+              setLogin(false);
+            }}
+          >
+            로그아웃
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
 
+      <MyBanner />
       <BannerList
         text={"지금! 뜨고 있는 댄스 학원"}
         addBtn={
@@ -159,7 +190,6 @@ const Home = () => {
         }
         list={academies}
       />
-
       <BannerList
         text={"요즘 인기 있는 연습실"}
         addBtn={
@@ -172,7 +202,6 @@ const Home = () => {
         }
         list={dancerooms}
       />
-
       <BannerList
         text={"지금 HOT한 댄서는 누구?"}
         addBtn={
@@ -187,9 +216,9 @@ const Home = () => {
       />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
       <section className="Home__about">
-          <About headText="레디댄스란 무엇인가요?" />
-          <About headText="레디댄스란 무엇인가요?" />
-          <About headText="저에게 맞는 댄스 장르를 찾고 싶어요" />
+        <About headText="레디댄스란 무엇인가요?" />
+        <About headText="레디댄스란 무엇인가요?" />
+        <About headText="저에게 맞는 댄스 장르를 찾고 싶어요" />
       </section>
       <MyFooter />
     </div>
