@@ -2,7 +2,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { DiGithub } from "react-icons/di";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Modal from "react-modal";
 
 import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
