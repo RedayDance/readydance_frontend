@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import MyPage from './pages/MyPage';
-import BannerItem from './components/BannerItem';
+import DetailPage from './pages/DetailPage';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/mypage/:id" element={<MyPage/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/signin" element={<SignIn/>}/>
-          <Route path="/banneritem" element={<BannerItem/>}/>
+          <Route path="/detail/:id" element={<DetailPage />} />
         </Routes>
        
       </div> 

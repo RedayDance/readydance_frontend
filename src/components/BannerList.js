@@ -24,7 +24,7 @@ const BannerList = ({ text, addBtn, list }) => {
       >
         {list.map((it) => (
           <SwiperSlide key={it.id} className="MySwiperList__slideItem"
-            onClick={()=>{navigate('banneritem')}}
+            onClick={()=>{navigate('/detail/3')}}
           >
             <img
               width="130px"
