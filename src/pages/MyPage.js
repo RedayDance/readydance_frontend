@@ -1,8 +1,10 @@
 import MyFooter from "../components/MyFooter";
+import MyHeader from "../components/MyHeader";
 const MyPage = () => {
   return (
     <>
-      mypage
+      <MyHeader />
+
       <MyFooter />
     </>
   );
