@@ -181,36 +181,14 @@ const Home = () => {
       <MyBanner />
       <BannerList
         text={"지금! 뜨고 있는 댄스 학원"}
-        addBtn={
-          <MyButton
-            text={"추천 댄스 학원 더 보러가기"}
-            onClick={() => alert("HI")}
-          />
-        }
         list={academies}
       />
       <BannerList
         text={"요즘 인기 있는 연습실"}
-        addBtn={
-          <MyButton
-            text={"추천 연습실 더 보러가기"}
-            onClick={() => {
-              alert("추천연습실");
-            }}
-          />
-        }
         list={dancerooms}
       />
       <BannerList
         text={"지금 HOT한 댄서는 누구?"}
-        addBtn={
-          <MyButton
-            text={"추천 댄서 더 보러가기"}
-            onClick={() => {
-              alert("추천댄서");
-            }}
-          />
-        }
         list={dancers}
       />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
