@@ -141,7 +141,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              alert("마이페이지 이동");
+              navigate('/mypage/3');
             }}
           >
             {" "}
