@@ -1,26 +1,25 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { DiGithub } from "react-icons/di";
+
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState } from "react";
 
 import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
-import MyButton from "../components/MyButton";
 import MyBanner from "../components/MyBanner";
 import About from "../components/About";
 import BannerList from "../components/BannerList";
-
+import { LoginDispatchContext } from "../App";
+import { LoginContext } from "../App";
 const Home = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState(true);
+  const login = useContext(LoginContext);
+  const toggleLogin = useContext(LoginDispatchContext)
   const [isHamPushed, setIsHamPushed] = useState(false);
 
   useEffect(() => {
     console.log(login);
-  }, [login]);
-  const toggleLogin = () => {
-    setLogin(!login);
-  };
+  }, []);
+
 
   const dancerooms = [
     {
@@ -124,23 +123,7 @@ const Home = () => {
   return (
     <div className="Home">
       <MyHeader
-        leftChild={
-          <DiGithub
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-        }
-        loginInfo={
-          login ? (
-            <MyButton text={"로그아웃"} onClick={toggleLogin} />
-          ) : (
-            <MyButton
-              text={"로그인/회원가입"}
-              onClick={() => navigate("/signin")}
-            />
-          )
-        }
+        
         rightChild={
           login ? (
             <GiHamburgerMenu
@@ -158,7 +141,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              alert("마이페이지 이동");
+              navigate('/mypage/3');
             }}
           >
             {" "}
@@ -168,7 +151,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              setLogin(false);
+              toggleLogin(login);
             }}
           >
             로그아웃

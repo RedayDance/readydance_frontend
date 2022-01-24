@@ -462,3 +462,43 @@ input {
 .DetailPage h6{
   height:10px;
 }
+
+/*MyPage*/
+.MyPage{
+  border:2px solid var(--color-light-gray);
+  box-shadow:  5px 3px 3px var(--color-light-gray);
+  margin:30px;
+}
+.MyPage .MyPage__header{
+  font-size: var(--font-small);
+  background-color: var(--color-light-gray);
+  width:100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height:40px;
+}
+.MyPage .MyPage__innerSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:30px;
+}
+.MyPage li{
+  text-decoration-style: dotted;
+  border-bottom: 2px solid var(--color-light-gray);
+  padding:2px;
+ 
+}
+
+.MyPage ul{
+  font-size: var(--font-micro);
+  list-style:circle;
+  width:20%;
+  cursor: pointer;
+}
+
+
+.MyPage .MyPage__contentSection{
+  
+}
