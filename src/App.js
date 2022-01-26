@@ -5,7 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import MyPage from "./pages/MyPage";
 import DetailPage from "./pages/DetailPage";
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 const loginreducer = (state, action) => {
   switch (action.type) {
     case "INIT": {

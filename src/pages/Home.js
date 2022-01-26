@@ -10,7 +10,6 @@ import About from "../components/About";
 import BannerList from "../components/BannerList";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
-import axios from "axios";
 import API from "../shared/Request";
 
 const Home = () => {
@@ -33,7 +32,6 @@ const Home = () => {
   const getMainInfoDanceRooms = async () => {
     try {
       const res = await API.get("/api/main/GetMainInfo/PracticeRoom");
-      console.log(res.data);
       const _inputData = await res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
@@ -50,7 +48,6 @@ const Home = () => {
   const getMainInfoDancers = async () => {
     try {
       const res = await API.get("/api/main/GetMainInfo/Dancer");
-      console.log(res);
       const _inputData = await res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
