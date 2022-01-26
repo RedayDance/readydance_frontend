@@ -3,12 +3,13 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const BannerList = ({ text,  list }) => {
+const BannerList = ({ text, list }) => {
   const navigate = useNavigate();
+
   return (
     <div className="MySwiperList">
       <h4>{text}</h4>
@@ -21,13 +22,14 @@ const BannerList = ({ text,  list }) => {
         pagination={{ clickable: true }}
       >
         {list.map((it) => (
-          <SwiperSlide key={it.id} className="MySwiperList__slideItem"
-            onClick={()=>{navigate('/detail/3')}}
+          <SwiperSlide
+            key={it.id}
+            className="MySwiperList__slideItem"
+            onClick={() => {
+              navigate(`/detail/${it.id}`);
+            }}
           >
-            <img
-              width="130px"
-              src={process.env.PUBLIC_URL + `assets/danceacademy_logo.png`}
-            />
+            <img width="130px" src={it.picture_url} />
             <div className="MySwiperList__rate">⭐️{it.rate}</div>
             <div className="MySwiperList__name">{it.name}</div>
             <div className="MySwiperList__description">{it.location}</div>
