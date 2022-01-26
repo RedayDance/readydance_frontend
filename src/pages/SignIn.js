@@ -3,17 +3,22 @@ import { useNavigate } from "react-router-dom";
 import MyFooter from "../components/MyFooter";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
+import { useContext } from "react";
+import { LoginDispatchContext } from "../App";
+import { LoginContext } from "../App";
 import { useRef, useState } from "react";
+import API from "../shared/Request";
 
 const btnStyle = {
-  backgroundColor: "#44dccf",
-  color: "#eeeeee",
   width: "200px",
   margin: "0 auto",
 };
 
 const SignIn = () => {
   const navigate = useNavigate();
+
+  const login = useContext(LoginContext);
+  const toggleLogin = useContext(LoginDispatchContext);
 
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -30,8 +35,23 @@ const SignIn = () => {
       passwordRef.current.focus();
       return;
     }
+
+    async function postData() {
+      try {
+        const response = await API.post("/api/user/Login", {
+          USR_ID: id,
+          USR_PASS: password,
+          LOGIN_TYPE: "L",
+        });
+        console.log(response);
+        navigate("/", { replace: true });
+        toggleLogin(login);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    postData();
     //만약 로그인이 성공한다면, 로그인 후 페이지로 바꾸기
-    navigate("/", { replace: true });
   };
   return (
     <div className="SignIn">
