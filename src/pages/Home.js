@@ -1,27 +1,25 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { DiGithub } from "react-icons/di";
+
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Modal from "react-modal";
+import {useContext, useEffect, useState } from "react";
 
 import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
-import MyButton from "../components/MyButton";
 import MyBanner from "../components/MyBanner";
 import About from "../components/About";
 import BannerList from "../components/BannerList";
-
+import { LoginDispatchContext } from "../App";
+import { LoginContext } from "../App";
 const Home = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState(true);
+  const login = useContext(LoginContext);
+  const toggleLogin = useContext(LoginDispatchContext)
   const [isHamPushed, setIsHamPushed] = useState(false);
 
   useEffect(() => {
     console.log(login);
-  }, [login]);
-  const toggleLogin = () => {
-    setLogin(!login);
-  };
+  }, []);
+
 
   const dancerooms = [
     {
@@ -125,23 +123,7 @@ const Home = () => {
   return (
     <div className="Home">
       <MyHeader
-        leftChild={
-          <DiGithub
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-        }
-        loginInfo={
-          login ? (
-            <MyButton text={"로그아웃"} onClick={toggleLogin} />
-          ) : (
-            <MyButton
-              text={"로그인/회원가입"}
-              onClick={() => navigate("/signin")}
-            />
-          )
-        }
+        
         rightChild={
           login ? (
             <GiHamburgerMenu
@@ -159,7 +141,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              alert("마이페이지 이동");
+              navigate('/mypage/3');
             }}
           >
             {" "}
@@ -169,7 +151,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              setLogin(false);
+              toggleLogin(login);
             }}
           >
             로그아웃
@@ -182,36 +164,14 @@ const Home = () => {
       <MyBanner />
       <BannerList
         text={"지금! 뜨고 있는 댄스 학원"}
-        addBtn={
-          <MyButton
-            text={"추천 댄스 학원 더 보러가기"}
-            onClick={() => alert("HI")}
-          />
-        }
         list={academies}
       />
       <BannerList
         text={"요즘 인기 있는 연습실"}
-        addBtn={
-          <MyButton
-            text={"추천 연습실 더 보러가기"}
-            onClick={() => {
-              alert("추천연습실");
-            }}
-          />
-        }
         list={dancerooms}
       />
       <BannerList
         text={"지금 HOT한 댄서는 누구?"}
-        addBtn={
-          <MyButton
-            text={"추천 댄서 더 보러가기"}
-            onClick={() => {
-              alert("추천댄서");
-            }}
-          />
-        }
         list={dancers}
       />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>

@@ -7,13 +7,11 @@ import {useNavigate} from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const BannerList = ({ text, addBtn, list }) => {
+const BannerList = ({ text,  list }) => {
   const navigate = useNavigate();
   return (
     <div className="MySwiperList">
       <h4>{text}</h4>
-      <div className="MySwiperList__bar__btn">{addBtn}</div>
-
       <Swiper
         className="MySwiperList__swiper"
         spaceBetween={30}
@@ -24,7 +22,7 @@ const BannerList = ({ text, addBtn, list }) => {
       >
         {list.map((it) => (
           <SwiperSlide key={it.id} className="MySwiperList__slideItem"
-            onClick={()=>{navigate('banneritem')}}
+            onClick={()=>{navigate('/detail/3')}}
           >
             <img
               width="130px"

@@ -4,10 +4,39 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import MyPage from './pages/MyPage';
-import BannerItem from './components/BannerItem';
+import DetailPage from './pages/DetailPage';
+import React, { useReducer, useState } from 'react';
+const loginreducer = (state, action) => {
+  switch(action.type){
+     case 'INIT':{
+       return false;
+     }
+    case 'TOGGLELOGIN':{
+      return !state;
+    }
+    default:
+      return state;
+  }
+ 
+}
 
-function App() {
+
+ export const LoginContext = React.createContext();
+ export const LoginDispatchContext = React.createContext();
+ function App() {
+  const [login, dispatch] = useReducer(loginreducer,true);
+
+  const toggleLogin = (login) => {
+    dispatch({type:"TOGGLELOGIN",
+   data:login})
+  };
+
+ 
   return (
+    <LoginContext.Provider value={login} >
+      <LoginDispatchContext.Provider value={toggleLogin}>
+
+   
     <BrowserRouter>
       <div className="App">
         
@@ -16,11 +45,13 @@ function App() {
           <Route path="/mypage/:id" element={<MyPage/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/signin" element={<SignIn/>}/>
-          <Route path="/banneritem" element={<BannerItem/>}/>
+          <Route path="/detail/:id" element={<DetailPage />} />
         </Routes>
        
       </div> 
-    </BrowserRouter>
+    </BrowserRouter>   
+    </LoginDispatchContext.Provider>
+    </LoginContext.Provider>
   );
 }
 
