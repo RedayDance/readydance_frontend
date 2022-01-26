@@ -105,7 +105,7 @@ input {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-image: url(/public/assets/next.png);
+  background-image: url(/public/assets/nextBtn.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
@@ -116,6 +116,15 @@ input {
   width: 200px;
   background-image: url(/public/assets/prevBtn.png);
 }
+
+.swiper-button-prev:hover {
+  background-image: url(/public/assets/prevBtnHover.png) !important;
+}
+
+.swiper-button-next:hover {
+  background-image: url(/public/assets/nextBtnHover.png) !important;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   display: none;
