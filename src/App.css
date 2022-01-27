@@ -199,6 +199,7 @@ input {
 /*MyBanner*/
 .MyBanner {
   height: 300px;
+  padding-bottom: 20px;
 }
 
 .MyBanner .MyBanner__swiper {
