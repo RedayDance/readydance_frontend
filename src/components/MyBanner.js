@@ -5,7 +5,8 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
-const MyBanner = ({}) => {
+const MyBanner = ({items}) => {
+  console.log(items);
   return (
     <div className="MyBanner">
       <Swiper
@@ -16,10 +17,13 @@ const MyBanner = ({}) => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
       >
-        <SwiperSlide className="MyBanner__slideItem">Temp Slide 1 </SwiperSlide>
-        <SwiperSlide className="MyBanner__slideItem">Temp Slide 2</SwiperSlide>
-        <SwiperSlide className="MyBanner__slideItem">Temp Slide 3</SwiperSlide>
-        <SwiperSlide className="MyBanner__slideItem">Temp Slide 4</SwiperSlide>
+        {items.map((it)=>(
+          <SwiperSlide key={it.id} className="MyBanner__slideItem">
+          <img
+          width={"80%"}
+          src={process.env.PUBLIC_URL + it.url}
+        /> </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

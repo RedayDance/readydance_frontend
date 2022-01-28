@@ -12,6 +12,12 @@ import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
 import API from "../shared/Request";
 
+
+const banner_acadmy = [
+  {id:1,url: `assets/tobby_dance.png`},
+  {id:2, url:`assets/hyevvy_dance.png`}
+]
+
 const Home = () => {
   const getMainInfoAcademy = async () => {
     try {
@@ -116,9 +122,11 @@ const Home = () => {
         <></>
       )}
 
-      <MyBanner />
+      {/* <MyBanner /> */}
       <BannerList text={"지금! 뜨고 있는 댄스 학원"} list={academies} />
       <BannerList text={"요즘 인기 있는 연습실"} list={dancerooms} />
+      
+      <MyBanner items={banner_acadmy}/>
       <BannerList text={"지금 HOT한 댄서는 누구?"} list={dancers} />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
       <section className="Home__about">

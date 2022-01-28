@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const BannerList = ({ text, list }) => {
+  console.log(list);
   const navigate = useNavigate();
 
   return (
