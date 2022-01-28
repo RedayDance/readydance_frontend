@@ -30,7 +30,7 @@ const BannerList = ({ text, list }) => {
               navigate(`/detail/${it.id}`);
             }}
           >
-            <img width="130px" src={it.picture_url} />
+            <img width="130px" height="150px" src={it.picture_url} />
             <div className="MySwiperList__rate">⭐️{it.rate}</div>
             <div className="MySwiperList__name">{it.name}</div>
             <div className="MySwiperList__description">{it.location}</div>
