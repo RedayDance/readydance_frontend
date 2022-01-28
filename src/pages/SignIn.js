@@ -43,7 +43,7 @@ const SignIn = () => {
           USR_PASS: password,
           LOGIN_TYPE: "L",
         });
-        console.log(response);
+        //console.log(response);
         navigate("/", { replace: true });
         toggleLogin(login);
       } catch (error) {
