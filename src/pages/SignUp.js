@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import MyFooter from "../components/MyFooter";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
+import API from "../shared/Request";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [certificationNumber, setCertificationNumber] = useState("");
+  const [s_certificationNumber, s_setCertificationNumber] = useState("");
 
   const [password, setPassword] = useState("");
   const [checkpassword, setCheckpassword] = useState("");
@@ -24,6 +26,8 @@ const SignUp = () => {
   const [hasNumber, setHasNumber] = useState(false);
   const [hasGoodLength, setHasGoodLength] = useState(false);
   const [pushCertifiactionBtn, setPushCertificationBtn] = useState(false);
+  const [pushCertificationOkBtn, setPushCertificationOkBtn] = useState(false);
+  const [certificate,setCertificate] = useState(false);
 
   const idRef = useRef();
   const nicknameRef = useRef();
@@ -133,7 +137,27 @@ const SignUp = () => {
       !pattern_kor.test(password)
     ) {
       const ans = window.confirm("회원가입을 진행하시겠습니까?");
+
+     
       if (ans == true) {
+         async function postData(){
+            try{
+              const response = await API.post("/api/user/Join", {
+                "USR_TYPE" : "L",
+                "USR_EMAIL" : email,
+                "USR_ID" : id,
+                "USR_PASS": password,
+                "USR_NAME": nickname,
+                "USR_TEL": phoneNumber,
+                "USR_IMG": "https://images.khan.co.kr/article/2021/01/08/l_2021010802000388200068931.jpg",
+              });
+              console.log(response);
+            }
+            catch(error){
+              console.error(error);
+            }
+        }
+      postData(); 
         console.log(`id: ${id}`);
         console.log(`nickname: ${nickname}`);
         console.log(`phoneNumber: ${phoneNumber}`);
@@ -173,6 +197,41 @@ const SignUp = () => {
     checkPassword(password);
   };
 
+  //서버에서 받은 인증번호와 사용자가 입력한 인증번호가 같은지 확인
+  function handleCheckCertificationNumber(e){
+    e.preventDefault();
+    setPushCertificationOkBtn(true);
+    if(parseInt(certificationNumber) === parseInt(s_certificationNumber)){
+      setCertificate(true);
+    }
+    else {
+      setCertificate(false);
+    }
+  }
+
+  //사용자가 올바른 전화번호를 입력했는지 확인해보고, 맞다면 서버에 전송한 후 인증번호를 받아옴
+  function handleClickPhoneBtn(e){
+    e.preventDefault();
+    if(checkPhoneNumber(phoneNumber)){
+       
+      async function postData2(){
+        try{
+          const response = await API.post("/api/user/SendNumber", {
+            "USR_TEL": phoneNumber
+          });
+          s_setCertificationNumber(response.data.data[0].AUTH_NUM);
+          //console.log(response.data.data[0].AUTH_NUM);
+        }
+        catch(error){
+          console.error(error);
+        }
+      }
+      postData2();
+       setPushCertificationBtn(true);
+    } else {
+      alert("올바른 전화번호를 입력해주세요")
+    }
+  }
   return (
     <div className="SignUp">
       <MyHeader
@@ -238,14 +297,7 @@ const SignUp = () => {
             <MyButton
               style={{ marginLeft: "10px", marginRight: "0px" }}
               text="인증번호전송"
-              onClick={
-                checkPhoneNumber(phoneNumber)
-                  ? () => {
-                      alert("번호 전송");
-                      setPushCertificationBtn(true);
-                    }
-                  : () => alert("올바른 전화번호를 입력해주세요")
-              }
+              onClick={handleClickPhoneBtn}
             />
           </div>
         </div>
@@ -253,6 +305,7 @@ const SignUp = () => {
         {pushCertifiactionBtn ? (
           <div>
             <h5>인증번호 입력</h5>
+            <div style={{ width: "200px", display: "flex" }}>
             <input
               placeholder="?자리 인증번호"
               name="certificationNumber"
@@ -262,10 +315,29 @@ const SignUp = () => {
                 setCertificationNumber(e.target.value);
               }}
             />
+            <MyButton
+              style={{ marginLeft: "10px", marginRight: "0px" }}
+              text="인증번호확인"
+              onClick={handleCheckCertificationNumber}
+            />
+          </div>
+
+          {
+          pushCertificationOkBtn &&
+            <h6 style={
+              certificate ? {} : { color:"red" }
+            }>
+             {certificate ? "인증이 완료되었습니다" : "인증번호가 올바르지 않습니다."}
+          </h6>
+          }
+
           </div>
         ) : (
           <> </>
         )}
+
+       
+        
 
         <div>
           <h5>비밀번호</h5>
