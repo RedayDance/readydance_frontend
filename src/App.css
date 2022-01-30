@@ -491,7 +491,7 @@ input {
 }
 .MyPage .MyPage__innerSection {
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
   padding: 30px;
 }
@@ -508,5 +508,34 @@ input {
   cursor: pointer;
 }
 
+.MyPage li:hover {
+  color:var(--color-primary);
+}
+
+
 .MyPage .MyPage__contentSection {
+  width:70%;
+  margin-left:20px;
+}
+
+
+/*MyPagePi*/
+.MyPagePi__innerDiv{
+  font-size:var(--font-micro);
+  display: flex;
+  justify-content: space-between;
+  margin-left:20px;
+  margin-top:10px;
+}
+
+.MyPagePi__innerDiv .MyPagePi__innerDiv__userInput{
+  border-bottom: 2px solid var(--color-light-gray);
+  width:50%;
+}
+
+.MyPagePi .MyBtn{
+  align-items: center;
+  text-align: center;
+  margin-top:30px;
+  size:var(--font-medium);
 }
