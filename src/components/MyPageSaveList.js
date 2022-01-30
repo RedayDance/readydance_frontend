@@ -1,8 +1,8 @@
-
+import MyProfileImg from "./MyProfileImg";
 const MyPageSaveList = () => {
     return(
         <div className="MyPageSaveList">
-            저장목록!
+            <MyProfileImg />
         </div>
     )
 }

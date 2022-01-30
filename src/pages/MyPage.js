@@ -5,6 +5,7 @@ import MyHeader from "../components/MyHeader";
 import MyPagePassword from "../components/MyPagePassword";
 import MyPagePi from "../components/MyPagePi";
 import MyPageSaveList from "../components/MyPageSaveList";
+import MyProfileImg from "../components/MyProfileImg";
 const MyPage = () => {
   const [clickedUl, setClickedUl] = useState(0);
   
@@ -31,7 +32,9 @@ const MyPage = () => {
         <div className="MyPage">
           <div className="MyPage__header">마이페이지</div>
          <div className="MyPage__innerSection">
+           
          <ul>
+           <MyProfileImg />
            <li onClick={()=>setClickedUl(1)}>개인 정보</li>
            <li onClick={()=>setClickedUl(2)}>비밀 번호 변경</li>
            <li onClick={()=>setClickedUl(3)}>저장 목록</li>
