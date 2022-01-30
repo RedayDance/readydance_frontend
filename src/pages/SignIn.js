@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
 import { useRef, useState } from "react";
-import API from "../shared/Request";
+import API, { POST, POSTDATA } from "../shared/Request";
 
 const btnStyle = {
   width: "200px",
@@ -36,22 +36,14 @@ const SignIn = () => {
       return;
     }
 
-    async function postData() {
-      try {
-        const response = await API.post("/api/user/Login", {
-          USR_ID: id,
-          USR_PASS: password,
-          LOGIN_TYPE: "L",
-        });
-        //console.log(response);
-        navigate("/", { replace: true });
-        toggleLogin(login);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    postData();
-    //만약 로그인이 성공한다면, 로그인 후 페이지로 바꾸기
+    POST("/api/user/Login", {
+      USR_ID: id,
+      USR_PASS: password,
+      LOGIN_TYPE: "L",
+    }).then((result) => console.log(result));
+
+    toggleLogin(login);
+    navigate("/", { replace: true });
   };
   return (
     <div className="SignIn">

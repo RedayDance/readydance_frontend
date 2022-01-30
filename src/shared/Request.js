@@ -8,4 +8,11 @@ const API = axios.create({
   },
 });
 
+export function POST(url, data) {
+  return new Promise((resolve, reject) => {
+    const ret = API.post(url, data);
+    resolve(ret);
+  });
+}
+
 export default API;

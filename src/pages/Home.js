@@ -10,13 +10,12 @@ import About from "../components/About";
 import BannerList from "../components/BannerList";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
-import API from "../shared/Request";
-
+import API, { POST } from "../shared/Request";
 
 const banner_acadmy = [
-  {id:1,url: `assets/tobby_dance.png`},
-  {id:2, url:`assets/hyevvy_dance.png`}
-]
+  { id: 1, url: `assets/tobby_dance.png` },
+  { id: 2, url: `assets/hyevvy_dance.png` },
+];
 
 const Home = () => {
   const getMainInfoAcademy = async () => {
@@ -112,7 +111,9 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              toggleLogin(login);
+              POST("/api/user/Logout", { MEM_ID: 1 }).then((response) => {
+                toggleLogin(login);
+              });
             }}
           >
             로그아웃
@@ -125,8 +126,8 @@ const Home = () => {
       {/* <MyBanner /> */}
       <BannerList text={"지금! 뜨고 있는 댄스 학원"} list={academies} />
       <BannerList text={"요즘 인기 있는 연습실"} list={dancerooms} />
-      
-      <MyBanner items={banner_acadmy}/>
+
+      <MyBanner items={banner_acadmy} />
       <BannerList text={"지금 HOT한 댄서는 누구?"} list={dancers} />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
       <section className="Home__about">
