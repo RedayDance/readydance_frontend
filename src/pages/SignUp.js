@@ -5,7 +5,7 @@ import MyFooter from "../components/MyFooter";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
 import API, { POST } from "../shared/Request";
-
+import MyProfileImg from '../components/MyProfileImg'
 const SignUp = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
@@ -232,6 +232,9 @@ const SignUp = () => {
       />
 
       <section className="SignUp__innerSection">
+        <div className="SignUp__innerSection__MyProfileImg">
+          <MyProfileImg />
+        </div>
         <div>
           <h5>아이디</h5>
           <input
