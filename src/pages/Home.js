@@ -10,7 +10,7 @@ import About from "../components/About";
 import BannerList from "../components/BannerList";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
-import API, { POST } from "../shared/Request";
+import API from "../shared/Request";
 
 const banner_acadmy = [
   { id: 1, url: `assets/tobby_dance.png` },
@@ -67,7 +67,7 @@ const Home = () => {
   };
   const navigate = useNavigate();
   const login = useContext(LoginContext);
-  const toggleLogin = useContext(LoginDispatchContext);
+  const r_logout = useContext(LoginDispatchContext);
   const [isHamPushed, setIsHamPushed] = useState(false);
 
   const [academies, setAcademies] = useState([]);
@@ -111,9 +111,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              POST("/api/user/Logout", { MEM_ID: 1 }).then((response) => {
-                toggleLogin(login);
-              });
+              r_logout(login);
             }}
           >
             로그아웃
