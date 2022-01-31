@@ -10,7 +10,7 @@ import About from "../components/About";
 import BannerList from "../components/BannerList";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
-import API from "../shared/Request";
+import { GET } from "../shared/Request";
 
 const banner_acadmy = [
   { id: 1, url: `assets/tobby_dance.png` },
@@ -18,10 +18,10 @@ const banner_acadmy = [
 ];
 
 const Home = () => {
-  const getMainInfoAcademy = async () => {
-    try {
-      const res = await API.get("/api/main/GetMainInfo/Academy");
-      const _inputData = await res.data.data.map((rowData) => ({
+  const getMainInfoAcademy = () => {
+    GET("/api/main/GetMainInfo/Academy", {
+    }).then((res)=>{
+      const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
         picture_url: rowData.POST_PICTURE,
@@ -29,15 +29,12 @@ const Home = () => {
         location: rowData.POST_LOCATION,
       }));
       setAcademies(academies.concat(_inputData));
-    } catch (e) {
-      console.log(e);
-    }
+    });
   };
 
-  const getMainInfoDanceRooms = async () => {
-    try {
-      const res = await API.get("/api/main/GetMainInfo/PracticeRoom");
-      const _inputData = await res.data.data.map((rowData) => ({
+  const getMainInfoDanceRooms = () => {
+    GET("/api/main/GetMainInfo/PracticeRoom").then((res)=>{
+      const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
         picture_url: rowData.POST_PICTURE,
@@ -45,15 +42,12 @@ const Home = () => {
         location: rowData.POST_LOCATION,
       }));
       setDanceRooms(dancerooms.concat(_inputData));
-    } catch (e) {
-      console.log(e);
-    }
+    })
   };
 
-  const getMainInfoDancers = async () => {
-    try {
-      const res = await API.get("/api/main/GetMainInfo/Dancer");
-      const _inputData = await res.data.data.map((rowData) => ({
+  const getMainInfoDancers = () => {
+    GET("/api/main/GetMainInfo/Dancer").then((res)=>{
+      const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
         picture_url: rowData.POST_PICTURE,
@@ -61,10 +55,10 @@ const Home = () => {
         genre: rowData.POST_JANRE,
       }));
       setDancers(dancers.concat(_inputData));
-    } catch (e) {
-      console.log(e);
-    }
+    })
+    
   };
+
   const navigate = useNavigate();
   const login = useContext(LoginContext);
   const r_logout = useContext(LoginDispatchContext);
@@ -79,7 +73,7 @@ const Home = () => {
     getMainInfoDanceRooms();
     getMainInfoDancers();
     console.log(login);
-  }, []);
+  }, [login]);
 
   return (
     <div className="Home">
