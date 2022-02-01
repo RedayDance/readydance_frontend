@@ -95,7 +95,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              navigate("/mypage/3");
+              navigate("/mypage");
             }}
           >
             {" "}

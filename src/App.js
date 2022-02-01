@@ -5,7 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import MyPage from "./pages/MyPage";
 import DetailPage from "./pages/DetailPage";
-import React, { useReducer, useState } from "react";
+import React, { useReducer} from "react";
 import { useEffect } from "react";
 const loginreducer = (state, action) => {
   switch (action.type) {
@@ -27,13 +27,12 @@ const loginreducer = (state, action) => {
 export const LoginContext = React.createContext();
 export const LoginDispatchContext = React.createContext();
 function App() {
-  //const [login, setLogin] = useState(false);
+ 
   const [login, dispatch] = useReducer(loginreducer, false);
   
   useEffect(()=>{
     const localLogin = localStorage.getItem("A_TOKEN");
     if(localLogin){
-      //setLogin(true);
       dispatch({type:"INIT", data:localLogin});
     }
   }, []);
