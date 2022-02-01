@@ -6,7 +6,7 @@ import "swiper/scss/pagination";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 const MyBanner = ({items}) => {
-  console.log(items);
+
   return (
     <div className="MyBanner">
       <Swiper

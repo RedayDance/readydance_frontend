@@ -9,7 +9,8 @@ import { useNavigate } from "react-router-dom";
 const MyHeader = ({ searchBar, rightChild }) => {
   const navigate = useNavigate();
   const login = useContext(LoginContext);
-  const toggleLogin = useContext(LoginDispatchContext)
+  const r_logout = useContext(LoginDispatchContext);
+  
   return (
     <header className="MyHeader">
       <div className="MyHeader__left"><DiGithub
@@ -21,7 +22,7 @@ const MyHeader = ({ searchBar, rightChild }) => {
       <div className="MyHeader__searchBar">{searchBar}</div>
       <div className="MyHeader__right">
         <div className="MyHeader__loginInfo"> {login ? (
-            <MyButton text={"로그아웃"} onClick={toggleLogin} />
+            <MyButton text={"로그아웃"} onClick={r_logout} />
           ) : (
             <MyButton
               text={"로그인/회원가입"}

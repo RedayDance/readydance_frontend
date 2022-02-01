@@ -377,6 +377,12 @@ input {
   margin-bottom: 20px;
 }
 
+.SignUp .SignUp__innerSection__MyProfileImg{
+  margin-top:40px;
+  transform: scale(2);
+  margin-bottom:10px;
+}
+
 .SignUp input {
   width: 200px;
 }
@@ -545,6 +551,7 @@ input {
 
 /*MyProfileImg*/
 .MyProfileImg{
+  cursor: pointer;
   position: relative;
   align-items:center; 
   display: flex; 
