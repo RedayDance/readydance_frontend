@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const BannerList = ({ text, list }) => {
+const BannerList = ({ type, text, list }) => {
   const navigate = useNavigate();
 
   return (
@@ -26,7 +26,7 @@ const BannerList = ({ text, list }) => {
             key={it.id}
             className="MySwiperList__slideItem"
             onClick={() => {
-              navigate(`/detail/${it.id}`);
+              navigate(`/detail/${type}/${it.id}`);
             }}
           >
             <img width="130px" height="150px" src={it.picture_url} />

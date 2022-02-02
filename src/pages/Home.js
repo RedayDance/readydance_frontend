@@ -114,11 +114,19 @@ const Home = () => {
       )}
 
       {/* <MyBanner /> */}
-      <BannerList text={"지금! 뜨고 있는 댄스 학원"} list={academies} />
-      <BannerList text={"요즘 인기 있는 연습실"} list={dancerooms} />
+      <BannerList
+        text={"지금! 뜨고 있는 댄스 학원"}
+        type={"AC"}
+        list={academies}
+      />
+      <BannerList
+        text={"요즘 인기 있는 연습실"}
+        type={"PR"}
+        list={dancerooms}
+      />
 
       <MyBanner items={banner_acadmy} />
-      <BannerList text={"지금 HOT한 댄서는 누구?"} list={dancers} />
+      <BannerList text={"지금 HOT한 댄서는 누구?"} type={"DA"} list={dancers} />
       <h4>ReadyDance에서 댄스에 대한 모든 것을 알아보세요!</h4>
       <section className="Home__about">
         <About headText="레디댄스란 무엇인가요?" />

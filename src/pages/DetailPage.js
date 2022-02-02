@@ -17,7 +17,7 @@ import { GET } from "../shared/Request";
 const DetailPage = () => {
   const navigate = useNavigate();
   const [isHamPushed, setIsHamPushed] = useState(false);
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   const [cau, setCau] = useState("");
   const [info, setInfo] = useState("");
@@ -26,14 +26,16 @@ const DetailPage = () => {
   const [url, setUrl] = useState("");
   console.log(id);
   useEffect(() => {
-    GET(`/api/main/SearchDetailed?FAD_NO=${id}`).then((res) => {
-      const ans = res.data.data[0];
-      setCau(ans.FAD_CAU);
-      setInfo(ans.FAD_INFO);
-      setInt(ans.FAD_INT);
-      setPrice(ans.FAD_PRICE);
-      setUrl(ans.FAD_URL);
-    });
+    GET(`/api/main/SearchDetailed?FAD_NO=${id}&FAD_TYPE=${type}`).then(
+      (res) => {
+        const ans = res.data.data[0];
+        setCau(ans.FAD_CAU);
+        setInfo(ans.FAD_INFO);
+        setInt(ans.FAD_INT);
+        setPrice(ans.FAD_PRICE);
+        setUrl(ans.FAD_URL);
+      }
+    );
   }, []);
 
   return (
