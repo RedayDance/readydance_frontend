@@ -19,8 +19,7 @@ const banner_acadmy = [
 
 const Home = () => {
   const getMainInfoAcademy = () => {
-    GET("/api/main/GetMainInfo/Academy", {
-    }).then((res)=>{
+    GET("/api/main/GetMainInfo/Academy", {}).then((res) => {
       const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
@@ -33,7 +32,7 @@ const Home = () => {
   };
 
   const getMainInfoDanceRooms = () => {
-    GET("/api/main/GetMainInfo/PracticeRoom").then((res)=>{
+    GET("/api/main/GetMainInfo/PracticeRoom").then((res) => {
       const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
@@ -42,11 +41,11 @@ const Home = () => {
         location: rowData.POST_LOCATION,
       }));
       setDanceRooms(dancerooms.concat(_inputData));
-    })
+    });
   };
 
   const getMainInfoDancers = () => {
-    GET("/api/main/GetMainInfo/Dancer").then((res)=>{
+    GET("/api/main/GetMainInfo/Dancer").then((res) => {
       const _inputData = res.data.data.map((rowData) => ({
         id: rowData.POST_NO,
         name: rowData.POST_NAME,
@@ -55,13 +54,12 @@ const Home = () => {
         genre: rowData.POST_JANRE,
       }));
       setDancers(dancers.concat(_inputData));
-    })
-    
+    });
   };
 
   const navigate = useNavigate();
   const login = useContext(LoginContext);
-  const {r_logout} = useContext(LoginDispatchContext);
+  const { r_logout } = useContext(LoginDispatchContext);
   const [isHamPushed, setIsHamPushed] = useState(false);
 
   const [academies, setAcademies] = useState([]);
