@@ -18,7 +18,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const login = useContext(LoginContext);
-  const toggleLogin = useContext(LoginDispatchContext);
+  const {r_login} = useContext(LoginDispatchContext);
 
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,7 @@ const SignIn = () => {
   const idRef = useRef();
   const passwordRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     if (id.length < 1) {
       idRef.current.focus();
       return;
@@ -43,7 +43,7 @@ const SignIn = () => {
     }).then((result) => {
       window.localStorage.setItem("A_TOKEN", JSON.stringify(result.data.data[0].A_TOKEN));
       window.localStorage.setItem("R_TOKEN", JSON.stringify(result.data.data[0].R_TOKEN));
-      toggleLogin(login);
+      r_login(login);
       navigate("/", { replace: true });
     });
 
@@ -75,7 +75,7 @@ const SignIn = () => {
           placeholder="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MyButton text="로그인 하기" style={btnStyle} onClick={handleSubmit} />
+        <MyButton text={"로그인 하기"} style={btnStyle} onClick={handleSubmit} />
 
         <div className="SignIn__toSignUp">
           <h5>아직 계정이 없으신가요? </h5>

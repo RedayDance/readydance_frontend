@@ -61,7 +61,7 @@ const Home = () => {
 
   const navigate = useNavigate();
   const login = useContext(LoginContext);
-  const r_logout = useContext(LoginDispatchContext);
+  const {r_logout} = useContext(LoginDispatchContext);
   const [isHamPushed, setIsHamPushed] = useState(false);
 
   const [academies, setAcademies] = useState([]);
@@ -95,7 +95,7 @@ const Home = () => {
           <div
             className="Home__innerhamburger__item"
             onClick={() => {
-              navigate("/mypage/3");
+              navigate("/mypage");
             }}
           >
             {" "}
