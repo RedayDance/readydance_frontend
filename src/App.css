@@ -238,7 +238,7 @@ input {
   justify-content: center;
 }
 
-.MySwiperList .MySwiper__slideItem img{
+.MySwiperList .MySwiper__slideItem img {
   object-fit: contain;
 }
 
@@ -256,7 +256,6 @@ input {
   color: var(--color-dark-gray);
   font-size: var(--font-micro);
 }
-
 
 /*Home*/
 .Home {
@@ -377,10 +376,10 @@ input {
   margin-bottom: 20px;
 }
 
-.SignUp .SignUp__innerSection__MyProfileImg{
-  margin-top:40px;
+.SignUp .SignUp__innerSection__MyProfileImg {
+  margin-top: 40px;
   transform: scale(2);
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 .SignUp input {
@@ -438,15 +437,22 @@ input {
   width: 200px;
   cursor: pointer;
   height: 40px;
+  margin-bottom: 20px;
 }
 
 .MyMap h6 {
+  margin-left: 10px;
+  text-align: center;
 }
 
 .MyMap .MyMap__icon {
   display: flex;
   align-items: center;
   margin-right: 5px;
+}
+
+.MyMap .MyMap__MapMarker {
+  width: 200px !important;
 }
 
 /*DetailPage*/
@@ -497,7 +503,7 @@ input {
 }
 .MyPage .MyPage__innerSection {
   display: flex;
-  
+
   align-items: center;
   padding: 30px;
 }
@@ -505,8 +511,8 @@ input {
   text-decoration-style: dotted;
   border-bottom: 2px solid var(--color-light-gray);
   padding: 2px;
-  margin-top:3px;
-  font-size:var(--font-micro)
+  margin-top: 3px;
+  font-size: var(--font-micro);
 }
 
 .MyPage ul {
@@ -514,76 +520,71 @@ input {
   list-style: circle;
   width: 20%;
   cursor: pointer;
-  
 }
 
 .MyPage li:hover {
-  color:var(--color-primary);
+  color: var(--color-primary);
 }
-
 
 .MyPage .MyPage__contentSection {
-  width:70%;
-  margin-left:20px;
+  width: 70%;
+  margin-left: 20px;
 }
-
 
 /*MyPagePi*/
-.MyPagePi__innerDiv{
-  font-size:var(--font-micro);
+.MyPagePi__innerDiv {
+  font-size: var(--font-micro);
   display: flex;
   justify-content: space-between;
-  margin-left:20px;
-  margin-top:10px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
-.MyPagePi__innerDiv .MyPagePi__innerDiv__userInput{
+.MyPagePi__innerDiv .MyPagePi__innerDiv__userInput {
   border-bottom: 2px solid var(--color-light-gray);
-  width:50%;
+  width: 50%;
 }
 
-.MyPagePi .MyBtn{
+.MyPagePi .MyBtn {
   align-items: center;
   text-align: center;
-  margin-top:30px;
-  size:var(--font-medium);
+  margin-top: 30px;
+  size: var(--font-medium);
 }
-
 
 /*MyPagePassword*/
-.MyPagePassword__innerDiv{
-  font-size:var(--font-micro);
+.MyPagePassword__innerDiv {
+  font-size: var(--font-micro);
   display: flex;
   justify-content: space-between;
-  margin-left:20px;
-  margin-top:10px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
-.MyPagePassword__forgetDiv{
-  font-size:6px;
-  color:var(--color-gray);
+.MyPagePassword__forgetDiv {
+  font-size: 6px;
+  color: var(--color-gray);
   display: flex;
   align-items: center;
-  margin-left:20px;
-  margin-top:0px;
+  margin-left: 20px;
+  margin-top: 0px;
 }
 
-.MyPagePassword__forgetDiv h6{
+.MyPagePassword__forgetDiv h6 {
   margin-right: 10px;
 }
 
-
-.MyPagePassword .MyBtn{
+.MyPagePassword .MyBtn {
   align-items: center;
   text-align: center;
-  size:var(--font-medium);
-  margin-top:30px;
+  size: var(--font-medium);
+  margin-top: 30px;
 }
-.MyPagePassword__forgetDiv .MyBtn{
+.MyPagePassword__forgetDiv .MyBtn {
   align-items: center;
   text-align: center;
   transform: scale(0.6);
-  margin:0
+  margin: 0;
 }
 
 .MyPagePassword input:hover,
@@ -593,43 +594,44 @@ input {
 }
 
 /*MyProfileImg*/
-.MyProfileImg{
+.MyProfileImg {
   cursor: pointer;
   position: relative;
-  align-items:center; 
-  display: flex; 
-  justify-content:center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
-  width:40px;
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: var(--color-light-gray);
 }
-.MyProfileImg .MyProfileImg__people{
-  top:50%; left:50%;
+.MyProfileImg .MyProfileImg__people {
+  top: 50%;
+  left: 50%;
   display: block;
-  margin:auto;
+  margin: auto;
   width: 30px;
   height: 30px;
 }
 
-.MyProfileImg .MyProfileImg__innerImg{
-  width:10px;
+.MyProfileImg .MyProfileImg__innerImg {
+  width: 10px;
   height: 10px;
-  position:absolute;
-  bottom:3px;
-  right:3px;
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
   background-color: var(--color-white);
   border-radius: 50%;
-  align-items:center; 
-  display: flex; 
-  justify-content:center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
-.MyProfileImg .MyProfileImg__camera{
-  top:50%; left:50%;
+.MyProfileImg .MyProfileImg__camera {
+  top: 50%;
+  left: 50%;
   display: block;
-  margin:auto;
+  margin: auto;
   width: 6px;
   height: 6px;
 }
-
