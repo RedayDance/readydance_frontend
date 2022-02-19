@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import "~antd/dist/antd.css";
 :root {
   /* Color */
   --color-white: #ffffff;
@@ -265,6 +266,12 @@ input {
   margin-left: 20px;
 }
 
+.Home .Home__searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
 .MyButton .addBtn {
   background-color: violet;
 }
@@ -304,118 +311,6 @@ input {
   opacity: 0.6;
 }
 
-/*MyFooter*/
-.MyFooter {
-  background-color: var(--color-dark-gray);
-  color: var(--color-dark-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-}
-
-/*About*/
-.About {
-  background-color: var(--color-light-gray);
-  width: 25%;
-  height: 100px;
-  margin: 0 20px;
-  padding-top: 10px;
-  padding-left: 10px;
-  font-size: var(--font-small);
-  word-break: nowrap;
-  text-overflow: clip;
-}
-.About__p {
-  word-wrap: break-word;
-  word-break: keep-all;
-}
-
-/*SignIn*/
-
-.SignIn {
-  height: 0 auto;
-}
-
-.SignIn .SignIn__innerSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.SignIn input {
-  margin-bottom: 15px;
-  border-radius: 5px;
-  width: 200px;
-  padding: 3px;
-  border: 1px solid var(--color-dark-gray);
-}
-
-.SignIn h5 {
-  color: var(--color-dark-gray);
-  margin-right: 15px;
-}
-
-.SignIn .SignIn__toSignUp {
-  display: flex;
-  align-items: center;
-}
-
-.SignIn input:hover,
-.SignIn input:focus {
-  outline: none !important;
-  border: 1px solid var(--color-primary);
-}
-
-/*SignUp*/
-.SignUp .SignUp__innerSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.SignUp .SignUp__innerSection__MyProfileImg {
-  margin-top: 40px;
-  transform: scale(2);
-  margin-bottom: 10px;
-}
-
-.SignUp input {
-  width: 200px;
-}
-
-.SignUp .SignUp__btn {
-  width: 300px;
-}
-.SignUp h5 {
-  color: var(--color-dark-gray);
-}
-
-.SignUp h6 {
-  color: var(--color-dark-gray);
-  margin-bottom: 1px;
-  margin-top: 1px;
-}
-.SignUp input:hover,
-.SignUp input:focus {
-  outline: none !important;
-  border: 1px solid var(--color-primary);
-}
-
-.SignUp .SignUp__alert {
-  color: red;
-  margin: 0;
-}
-
-.SignUp h5 {
-  margin-bottom: 5px;
-}
-
-/*MyDiv*/
-.MyDiv {
-}
 .MyDiv h4 {
   font-weight: 700;
 }
