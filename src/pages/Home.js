@@ -11,7 +11,10 @@ import BannerList from "../components/BannerList";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
 import { GET } from "../shared/Request";
+import { Input } from "antd";
 
+const { Search } = Input;
+const onSearch = (value) => console.log(value);
 const banner_acadmy = [
   { id: 1, url: `assets/tobby_dance.png` },
   { id: 2, url: `assets/hyevvy_dance.png` },
@@ -113,6 +116,15 @@ const Home = () => {
         <></>
       )}
 
+      <div className="Home__searchBar">
+        <Search
+          placeholder="지역, 지하철 역, 시설, 댄서 검색"
+          onSearch={onSearch}
+          allowClear
+          style={{ width: 500 }}
+          size="large"
+        />
+      </div>
       {/* <MyBanner /> */}
       <BannerList
         text={"지금! 뜨고 있는 댄스 학원"}
