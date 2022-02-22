@@ -532,3 +532,23 @@ input {
   width: 6px;
   height: 6px;
 }
+
+/*SignIn*/
+.SignIn__innerSection {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignIn__toSignUp {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/*SignUp*/
+.SignUp__innerSection {
+  margin: 0 auto;
+  text-align: center;
+}

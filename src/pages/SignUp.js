@@ -277,7 +277,13 @@ const SignUp = () => {
 
         <div>
           <h5>전화번호</h5>
-          <div style={{ width: "200px", display: "flex" }}>
+          <div
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          >
             <input
               placeholder="전화번호"
               required
@@ -287,6 +293,7 @@ const SignUp = () => {
               onChange={(e) => {
                 setPhoneNumber(e.target.value);
               }}
+              style={{ marginLeft: "60px", width: "150px" }}
             />
             <MyButton
               style={{ marginLeft: "10px", marginRight: "0px" }}
