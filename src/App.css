@@ -38,6 +38,7 @@
 }
 
 body {
+  overflow: scroll;
   font-family: "Jua", sans-serif;
   cursor: default;
   background-color: var(--color-light-gray);
@@ -51,6 +52,7 @@ body {
 #root {
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: scroll;
 }
 
 @media (min-width: 700px) {
@@ -167,7 +169,12 @@ input {
 .MyHeader .MyHeader__rightChild {
   font-size: var(--font-small);
 }
-
+/*MyFooter*/
+.MyFooter {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--color-gray);
+}
 /*MyButton*/
 .MyButton {
   font-family: "Jua", sans-serif;
@@ -529,4 +536,35 @@ input {
   margin: auto;
   width: 6px;
   height: 6px;
+}
+
+/*SignIn*/
+.SignIn__innerSection {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignIn__toSignUp {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/*SignUp*/
+.SignUp__innerSection {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.SignUp h5 {
+  color: var(--color-gray);
+}
+
+.SignUp .SignUp__innerSection__MyProfileImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
 }

@@ -7,10 +7,10 @@ import { useContext } from "react";
 import { LoginDispatchContext } from "../App";
 import { LoginContext } from "../App";
 import { useRef, useState } from "react";
-import { POST} from "../shared/Request";
+import { POST } from "../shared/Request";
 
 const btnStyle = {
-  width: "200px",
+  width: "160px",
   margin: "0 auto",
 };
 
@@ -18,7 +18,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const login = useContext(LoginContext);
-  const {r_login} = useContext(LoginDispatchContext);
+  const { r_login } = useContext(LoginDispatchContext);
 
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -41,24 +41,21 @@ const SignIn = () => {
       USR_PASS: password,
       LOGIN_TYPE: "L",
     }).then((result) => {
-      window.localStorage.setItem("A_TOKEN", JSON.stringify(result.data.data[0].A_TOKEN));
-      window.localStorage.setItem("R_TOKEN", JSON.stringify(result.data.data[0].R_TOKEN));
+      window.localStorage.setItem(
+        "A_TOKEN",
+        JSON.stringify(result.data.data[0].A_TOKEN)
+      );
+      window.localStorage.setItem(
+        "R_TOKEN",
+        JSON.stringify(result.data.data[0].R_TOKEN)
+      );
       r_login(login);
       navigate("/", { replace: true });
     });
-
   };
   return (
     <div className="SignIn">
-      <MyHeader
-        leftChild={
-          <DiGithub
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-        }
-      />
+      <MyHeader />
 
       <section className="SignIn__innerSection">
         <h2>로그인</h2>
@@ -75,11 +72,16 @@ const SignIn = () => {
           placeholder="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MyButton text={"로그인 하기"} style={btnStyle} onClick={handleSubmit} />
+        <MyButton
+          text={"로그인 하기"}
+          style={btnStyle}
+          onClick={handleSubmit}
+        />
 
         <div className="SignIn__toSignUp">
           <h5>아직 계정이 없으신가요? </h5>
           <MyButton
+            style={{ marginLeft: "10px" }}
             text="계정 만들기 >"
             onClick={() => {
               navigate("/signup");
