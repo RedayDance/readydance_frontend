@@ -5,7 +5,7 @@ import MyFooter from "../components/MyFooter";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
 import API, { POST } from "../shared/Request";
-import MyProfileImg from '../components/MyProfileImg'
+import MyProfileImg from "../components/MyProfileImg";
 const SignUp = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
@@ -238,6 +238,7 @@ const SignUp = () => {
         <div>
           <h5>아이디</h5>
           <input
+            required
             placeholder="아이디"
             name="id"
             value={id}
@@ -250,6 +251,7 @@ const SignUp = () => {
           <h5>닉네임</h5>
           <input
             placeholder="닉네임"
+            required
             name="nickname"
             value={nickname}
             ref={nicknameRef}
@@ -261,6 +263,7 @@ const SignUp = () => {
           <h5>이메일</h5>
           <input
             placeholder="이메일"
+            required
             type="email"
             name="email"
             value={email}
@@ -277,6 +280,7 @@ const SignUp = () => {
           <div style={{ width: "200px", display: "flex" }}>
             <input
               placeholder="전화번호"
+              required
               name="phoneNumber"
               value={phoneNumber}
               ref={phoneNumberRef}
@@ -299,6 +303,7 @@ const SignUp = () => {
               <input
                 placeholder="?자리 인증번호"
                 name="certificationNumber"
+                required
                 value={certificationNumber}
                 ref={certificationNumberRef}
                 onChange={(e) => {
