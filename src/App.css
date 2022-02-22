@@ -169,7 +169,12 @@ input {
 .MyHeader .MyHeader__rightChild {
   font-size: var(--font-small);
 }
-
+/*MyFooter*/
+.MyFooter {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--color-gray);
+}
 /*MyButton*/
 .MyButton {
   font-family: "Jua", sans-serif;
@@ -551,4 +556,15 @@ input {
 .SignUp__innerSection {
   margin: 0 auto;
   text-align: center;
+}
+
+.SignUp h5 {
+  color: var(--color-gray);
+}
+
+.SignUp .SignUp__innerSection__MyProfileImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
 }
