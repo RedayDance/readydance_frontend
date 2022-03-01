@@ -22,13 +22,15 @@ const banner_acadmy = [
 
 const Home = () => {
   const getMainInfoAcademy = () => {
-    GET("/api/main/GetMainInfo/Academy", {}).then((res) => {
+    GET("/api/main/GetMainInfo/Academy").then((res) => {
+       console.log(res);
       const _inputData = res.data.data.map((rowData) => ({
-        id: rowData.POST_NO,
-        name: rowData.POST_NAME,
-        picture_url: rowData.POST_PICTURE,
-        rate: rowData.POST_RATE,
-        location: rowData.POST_LOCATION,
+        id: rowData.id,
+        name: rowData.postName,
+        picture_url: rowData.postPicture,
+        rate: rowData.postRate,
+        location: rowData.postLocation,
+        type:rowData.postType
       }));
       setAcademies(academies.concat(_inputData));
     });
@@ -37,11 +39,12 @@ const Home = () => {
   const getMainInfoDanceRooms = () => {
     GET("/api/main/GetMainInfo/PracticeRoom").then((res) => {
       const _inputData = res.data.data.map((rowData) => ({
-        id: rowData.POST_NO,
-        name: rowData.POST_NAME,
-        picture_url: rowData.POST_PICTURE,
-        rate: rowData.POST_RATE,
-        location: rowData.POST_LOCATION,
+        id: rowData.id,
+        name: rowData.postName,
+        picture_url: rowData.postPicture,
+        rate: rowData.postRate,
+        location: rowData.postLocation,
+        type:rowData.postType
       }));
       setDanceRooms(dancerooms.concat(_inputData));
     });
@@ -50,11 +53,12 @@ const Home = () => {
   const getMainInfoDancers = () => {
     GET("/api/main/GetMainInfo/Dancer").then((res) => {
       const _inputData = res.data.data.map((rowData) => ({
-        id: rowData.POST_NO,
-        name: rowData.POST_NAME,
-        picture_url: rowData.POST_PICTURE,
-        rate: rowData.POST_RATE,
-        genre: rowData.POST_JANRE,
+        id: rowData.id,
+        name: rowData.postName,
+        picture_url: rowData.postPicture,
+        rate: rowData.postRate,
+        location: rowData.postLocation,
+        type:rowData.postType
       }));
       setDancers(dancers.concat(_inputData));
     });
@@ -74,6 +78,7 @@ const Home = () => {
     getMainInfoDanceRooms();
     getMainInfoDancers();
     console.log(login);
+    console.log(academies);
   }, [login]);
 
   return (
@@ -115,7 +120,7 @@ const Home = () => {
       ) : (
         <></>
       )}
-
+{/* 
       <div className="Home__searchBar">
         <Search
           placeholder="지역, 지하철 역, 시설, 댄서 검색"
@@ -124,7 +129,7 @@ const Home = () => {
           style={{ width: 500 }}
           size="large"
         />
-      </div>
+      </div> */}
       {/* <MyBanner /> */}
       <BannerList
         text={"지금! 뜨고 있는 댄스 학원"}
