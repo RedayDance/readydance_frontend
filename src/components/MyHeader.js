@@ -15,8 +15,9 @@ const MyHeader = ({ searchBar, rightChild }) => {
     <header className="MyHeader">
       <div className="MyHeader__left">
         <img
+          alt="레디댄스 로고이미지"
           style={{ transform: "scale(0.8)" }}
-          src={process.env.PUBLIC_URL + `assets/Logo_readyDance.png`}
+          src={process.env.PUBLIC_URL + `/assets/Logo_readyDance.png`}
           onClick={() => {
             navigate("/");
           }}

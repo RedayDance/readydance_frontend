@@ -77,8 +77,7 @@ const Home = () => {
     getMainInfoAcademy();
     getMainInfoDanceRooms();
     getMainInfoDancers();
-    console.log(login);
-    console.log(academies);
+
   }, [login]);
 
   return (
