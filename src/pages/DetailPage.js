@@ -1,22 +1,17 @@
 import MyHeader from "../components/MyHeader";
 import MyFooter from "../components/MyFooter";
-import MyButton from "../components/MyButton";
 import MyDiv from "../components/MyDiv";
 import MyMap from "../components/MyMap";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 
-import { GiHamburgerMenu } from "react-icons/gi";
-import { DiGithub } from "react-icons/di";
 import { GET } from "../shared/Request";
 
 const DetailPage = () => {
-  const navigate = useNavigate();
-  const [isHamPushed, setIsHamPushed] = useState(false);
   const { id, type } = useParams();
 
   const [cau, setCau] = useState("");
@@ -24,43 +19,35 @@ const DetailPage = () => {
   const [int, setInt] = useState("");
   const [price, setPrice] = useState("");
   const [url, setUrl] = useState("");
-  console.log(id);
+  const [coordX, setCoordX] = useState("");
+  const [coordY, setCoordY] = useState("");
+
   useEffect(() => {
     GET(`/api/main/SearchDetailed?FAD_NO=${id}&FAD_TYPE=${type}`).then(
       (res) => {
-        const ans = res.data.data[0];
-        setCau(ans.FAD_CAU);
-        setInfo(ans.FAD_INFO);
-        setInt(ans.FAD_INT);
-        setPrice(ans.FAD_PRICE);
-        setUrl(ans.FAD_URL);
+        console.log(res);
+        const ans = res.data.data;
+        console.log(ans);
+        setCau(ans.fadCau);
+        setInfo(ans.fadInfo);
+        setInt(ans.fadInt);
+        setPrice(ans.fadPrice);
+        setUrl(ans.fadUrl);
+        setCoordX(ans.fadX);
+        setCoordY(ans.fadY);
       }
     );
   }, []);
 
   return (
     <>
-      <MyHeader
-        leftChild={
-          <DiGithub
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-        }
-        rightChild={
-          <GiHamburgerMenu
-            onClick={() => {
-              setIsHamPushed(!isHamPushed);
-            }}
-          />
-        }
-      />
+      <MyHeader/>
       <div className="DetailPage">
         <div className="DetailPage__header">
           <img
             width="130px"
             src={process.env.PUBLIC_URL + `/assets/danceacademy_logo.png`}
+            alt="시설이미지"
           />
           <div className="DetailPage__header__info">
             <div className="DetailPage__header__name">
@@ -81,7 +68,7 @@ const DetailPage = () => {
 
         <MyDiv head={"주의 사항"} innerText={cau} />
 
-        <MyMap head={"위치 안내"} address={"서울 송파구 올림픽로 300"} />
+        <MyMap head={"위치 안내"} address={"서울 송파구 올림픽로 300"} cx={coordX} cy={coordY}/>
       </div>
       <MyFooter />
     </>

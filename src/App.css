@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
-@import "~antd/dist/antd.css";
+/* @import "~antd/dist/antd.css"; */
 :root {
   /* Color */
   --color-white: #ffffff;
@@ -38,21 +38,20 @@
 }
 
 body {
-  overflow: scroll;
   font-family: "Jua", sans-serif;
   cursor: default;
   background-color: var(--color-light-gray);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100% ;
   margin: 0px;
 }
 
 #root {
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  overflow: scroll;
+
 }
 
 @media (min-width: 700px) {
