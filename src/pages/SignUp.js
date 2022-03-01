@@ -140,15 +140,20 @@ const SignUp = () => {
 
       if (ans == true) {
         POST("/api/user/Join", {
-          USR_TYPE: "L",
-          USR_EMAIL: email,
-          USR_ID: id,
-          USR_PASS: password,
-          USR_NAME: nickname,
-          USR_TEL: phoneNumber,
-          USR_IMG:
-            "https://images.khan.co.kr/article/2021/01/08/l_2021010802000388200068931.jpg",
+          usrType : "L",
+          usrEmail : email,
+          usrId : id,
+          usrPass: password,
+          usrName: nickname,
+          usrTel: phoneNumber,
+          usrImg: "https://images.khan.co.kr/article/2021/01/08/l_2021010802000388200068931.jpg"
         }).then((response) => {
+          //회원가입이 성공하면 이메일
+          POST("/api/user/SendEmail",{
+            content: "레디댄스 가입을 축하드립니다!",
+            usrEmail: email,
+            title: "레디댄스 가입을 축하드립니다"
+          })
           console.log(response);
         });
 
@@ -208,12 +213,11 @@ const SignUp = () => {
     e.preventDefault();
     if (checkPhoneNumber(phoneNumber)) {
       POST("/api/user/SendNumber", {
-        USR_TEL: phoneNumber,
+        sendingNumber: phoneNumber,
+        receiptNumber: phoneNumber
       }).then((response) => {
-        s_setCertificationNumber(response.data.data[0].AUTH_NUM);
-        console.log(response.data.data[0].AUTH_NUM);
+        s_setCertificationNumber(response.data.data.authNum);
       });
-
       setPushCertificationBtn(true);
     } else {
       alert("올바른 전화번호를 입력해주세요");
